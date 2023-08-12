@@ -11,7 +11,7 @@ if __name__ == "__main__":
     result_multiply = multiply(a, b)
     result_divide = divide(a, b)
 
-    print("Add: {}".format(result_add))
-    print("Subtract: {}".format(result_subtract))
-    print("Multiply: {}".format(result_multiply))
-    print("Divide: {}".format(result_divide))
+    print("Addition: {}".format(result_add))
+    print("Subtraction: {}".format(result_subtract))
+    print("Multiplication: {}".format(result_multiply))
+    print("Division: {}".format(result_divide))
