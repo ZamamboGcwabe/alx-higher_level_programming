@@ -19,7 +19,7 @@ class Square:
         return (self.__size)
 
     def size(self, value):
-        """"Set size of square sides."""
+        """Set size of square sides."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
