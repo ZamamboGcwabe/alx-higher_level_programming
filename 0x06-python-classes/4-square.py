@@ -10,8 +10,7 @@ class Square:
         Parameter:
         size(int): Size of new square.
         """
-
-        self.__size = size
+        self.size = size
 
         def size(self):
             """Return current size of square."""
