@@ -25,6 +25,10 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
+    def position(self):
+        """Get current position of square."""
+        return (self.__position)
+
     def position(self, value):
         """Set position of the square.
         Parameter:
