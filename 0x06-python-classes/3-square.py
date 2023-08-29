@@ -8,7 +8,7 @@ class Square:
     def __init__(self, size=0):
         """Initialize new square.
         Parameter:
-        size: size of new square.
+        size(int): size of new square.
         """
 
         if not isinstance(size, int):
