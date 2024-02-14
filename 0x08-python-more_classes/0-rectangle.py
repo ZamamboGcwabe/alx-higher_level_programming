@@ -2,4 +2,5 @@
 """ Defines a rectangle. """
 
 class Rectangle:
+    """ Represents a rectangle. """
     pass
