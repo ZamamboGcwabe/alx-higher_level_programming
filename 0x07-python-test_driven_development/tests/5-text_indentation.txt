@@ -1,0 +1,54 @@
+def test_text_indentation_with_punctuation():
+    """
+    Test text indentation with punctuation.
+    """
+    text = "This. is a sample text. With? multiple punctuation."
+    expected_output = """\
+This.
+is a sample text.
+With?
+multiple punctuation.\
+"""
+    
+    captured_output = io.StringIO()
+    sys.stdout = captured_output
+    text_indentation(text)
+    sys.stdout = sys.__stdout__
+    assert captured_output.getvalue().strip() == expected_output.strip()
+
+def test_text_indentation_without_punctuation():
+    """
+    Test text indentation without punctuation.
+    """
+    text = "This is a simple text without special characters."
+    expected_output = """\
+This is a simple text without special characters.\
+"""
+    
+    captured_output = io.StringIO()
+    sys.stdout = captured_output
+    text_indentation(text)
+    sys.stdout = sys.__stdout__
+    assert captured_output.getvalue().strip() == expected_output.strip()
+
+def test_text_indentation_with_empty_string():
+    """
+    Test text indentation with an empty string.
+    """
+    text = ""
+    expected_output = ""
+    
+    captured_output = io.StringIO()
+    sys.stdout = captured_output
+    text_indentation(text)
+    sys.stdout = sys.__stdout__
+    assert captured_output.getvalue().strip() == expected_output.strip()
+
+def test_type_error_for_non_string():
+    """
+    Test raising TypeError for non-string input.
+    """
+    with pytest.raises(TypeError) as excinfo:
+        text_indentation(123)
+    assert "text must be a string" in str(excinfo.value)
+

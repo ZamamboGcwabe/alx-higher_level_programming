@@ -1,0 +1,36 @@
+def test_say_my_name_with_both_names():
+    """
+    Test saying my name with both first and last name provided.
+    """
+    captured_output = io.StringIO()
+    sys.stdout = captured_output
+    say_my_name("Alice", "Bob")
+    sys.stdout = sys.__stdout__
+    assert captured_output.getvalue().strip() == "My name is Alice Bob"
+
+def test_say_my_name_with_first_name_only():
+    """
+    Test saying my name with only first name provided.
+    """
+    captured_output = io.StringIO()
+    sys.stdout = captured_output
+    say_my_name("Charlie")
+    sys.stdout = sys.__stdout__
+    assert captured_output.getvalue().strip() == "My name is Charlie"
+
+def test_type_error_for_non_string_first_name():
+    """
+    Test raising TypeError for non-string first name.
+    """
+    with pytest.raises(TypeError) as excinfo:
+        say_my_name(123, "Smith")
+    assert "first_name must be a string" in str(excinfo.value)
+
+def test_type_error_for_non_string_last_name():
+    """
+    Test raising TypeError for non-string last name.
+    """
+    with pytest.raises(TypeError) as excinfo:
+        say_my_name("John", 456)
+    assert "last_name must be a string" in str(excinfo.value)
+

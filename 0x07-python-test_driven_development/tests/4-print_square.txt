@@ -1,0 +1,45 @@
+def test_print_square_positive_integer():
+    """
+    Test printing a square with a positive integer size.
+    """
+    captured_output = io.StringIO()
+    sys.stdout = captured_output
+    print_square(3)
+    sys.stdout = sys.__stdout__
+    output = captured_output.getvalue().strip()
+    assert output == "# # #\n# # #\n# # #"
+
+def test_print_square_zero():
+    """
+    Test printing a square with size 0.
+    """
+    captured_output = io.StringIO()
+    sys.stdout = captured_output
+    print_square(0)
+    sys.stdout = sys.__stdout__
+    assert captured_output.getvalue().strip() == ""
+
+def test_type_error_for_non_integer():
+    """
+    Test raising TypeError for non-integer size.
+    """
+    with pytest.raises(TypeError) as excinfo:
+        print_square("hello")
+    assert "size must be an integer" in str(excinfo.value)
+
+def test_value_error_for_negative_integer():
+    """
+    Test raising ValueError for negative integer size.
+    """
+    with pytest.raises(ValueError) as excinfo:
+        print_square(-1)
+    assert "size must be >= 0" in str(excinfo.value)
+
+def test_type_error_for_negative_float():
+    """
+    Test raising TypeError for negative float size.
+    """
+    with pytest.raises(TypeError) as excinfo:
+        print_square(-3.5)
+    assert "size must be an integer" in str(excinfo.value)
+

@@ -1,0 +1,32 @@
+def test_add_integers():
+    """
+    Test adding two integers.
+    """
+    assert add_integer(5, 3) == 8
+    assert add_integer(-2, 10) == 8
+
+def test_add_floats():
+    """
+    Test adding two floats, converting them to integers.
+    """
+    assert add_integer(3.5, 1.2) == 5
+    assert add_integer(-2.8, 1.7) == -1
+
+def test_default_b():
+    """
+    Test using the default value for b.
+    """
+    assert add_integer(10) == 108
+
+def test_type_errors():
+    """
+    Test raising TypeError for non-numeric inputs.
+    """
+    with pytest.raises(TypeError) as excinfo:
+        add_integer("hello", 5)
+    assert "a must be an integer" in str(excinfo.value)
+
+    with pytest.raises(TypeError) as excinfo:
+        add_integer(10, "world")
+    assert "b must be an integer" in str(excinfo.value)
+
