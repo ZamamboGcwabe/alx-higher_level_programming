@@ -1,0 +1,40 @@
+>>> from my_module import BaseGeometry
+
+>>> geom = BaseGeometry()
+
+# Test area() raises Exception
+>>> try:
+...     geom.area()
+... except Exception as e:
+...     print(e)
+... else:
+...     print("area() did not raise Exception")
+area() is not implemented
+
+# Test integer_validator with string
+>>> try:
+...     geom.integer_validator("width", "hello")
+... except TypeError as e:
+...     print(e)
+... else:
+...     print("integer_validator did not raise TypeError (string)")
+width must be an integer
+
+# Test integer_validator with negative integer
+>>> try:
+...     geom.integer_validator("height", -5)
+... except ValueError as e:
+...     print(e)
+... else:
+...     print("integer_validator did not raise ValueError (negative)")
+height must be greater than 0
+
+# Test integer_validator with positive integer
+>>> try:
+...     geom.integer_validator("length", 10)
+... except Exception as e:
+...     print(e)
+... else:
+...     print("integer_validator did not raise any exception (positive int)")
+integer_validator did not raise any exception (positive int)
+

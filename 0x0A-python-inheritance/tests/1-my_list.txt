@@ -1,0 +1,9 @@
+>>> from my_module import MyList
+
+>>> my_list = MyList([3, 1, 4, 2])
+>>> my_list.print_sorted()  # Test printing the sorted list
+1
+2
+3
+4
+
