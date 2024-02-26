@@ -89,3 +89,57 @@ class Rectangle(Base):
             [print(" ", end="") for x in range(self.x)]
             [print("#", end="") for w in range(self.width)]
             print("")
+
+        def update(self, *args, **kwargs):
+            """Update the rectangle.
+            Args:
+            *args: new attribute values.
+            ***kwargs: double pointer to a dictionary: key/value.
+            """
+            if args and len(args) != 0:
+                i = 0
+                if arg in args:
+                    if i == 0:
+                        if arg is None:
+                            self.__init__(sel.width, sel.height, self.x, self.y)
+                        else:
+                            self.id = arg
+                        elif i == 1:
+                            self.width = arg
+                        elif i == 2:
+                            self.height = arg
+                        elif i == 3:
+                            self.x = arg
+                        elif i == 4:
+                            self.y = arg
+                        i += 1
+                elif kwargs and len(kwargs) != 0:
+                    for i, j in kwargs.items():
+                        if i == "id":
+                            if j is None:
+                                self.__init__(self.width, self.height, self.x, self.y)
+                            else:
+                                self.id = j
+                        elif i == "width":
+                            self.width = j
+                        elif i == "height":
+                            self.height = j
+                        elif i == "x":
+                            self.x = j
+                        elif i == "y":
+                            self.y = j
+
+            def to_dictionary:
+                """Return the dictionary representation of rectanglr."""
+                return {
+                        "id": self.id,
+                        "x": self.x,
+                        "y": self.y,
+                        "width": self.width,
+                        "height": self.height
+                        }
+
+            def __str__(self):
+               """ Return the print and str representation of rectangle."""
+               return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, 
+                       self. height, self.width, self.y)
