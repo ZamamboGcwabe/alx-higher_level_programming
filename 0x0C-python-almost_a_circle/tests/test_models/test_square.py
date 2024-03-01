@@ -5,6 +5,8 @@
 import unittest
 from models.base import Base
 from models.square import Square
+import sys
+import io
 
 
 class TestSquare_instantiation(unittest.TestCase):
