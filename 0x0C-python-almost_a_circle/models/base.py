@@ -20,7 +20,7 @@ class Base:
         Args:
         id: identity of new base.
         """
-        if id is not none:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
@@ -37,7 +37,7 @@ class Base:
         return json.dumps(list_dictionaries)
 
     @classmethod
-    save_to_file(cls, list_objs):
+    def save_to_file(cls, list_objs):
         """Writes the JSON string representation of list_objs to a file.
         Args:
         list_objs: list of inherited Base instances.
@@ -56,7 +56,7 @@ class Base:
         Args:
         json_string: representation of a list of dicts.
         """
-        if json_string iss None or json_string == "[]":
+        if json_string is None or json_string == "[]":
             return []
         return json.loads(json_string)
 
@@ -82,7 +82,6 @@ class Base:
         try:
             with open(filename, "r") as jsonfile:
                 list_dictionaries = Base.from_json_string(jsonfile.read())
-                return [cls.create(**dictionary) for d in list_dictionaries)]
+                return [cls.create(**dictionary) for d in list_dictionaries]
         except IOError:
             return []
-
