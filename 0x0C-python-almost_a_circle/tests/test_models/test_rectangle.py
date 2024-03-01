@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-
 """Defines unittests for rectangle"""
+
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+import io
+import sys
 
 
 class TestRectangle_instantiation(unittest.TestCase):
