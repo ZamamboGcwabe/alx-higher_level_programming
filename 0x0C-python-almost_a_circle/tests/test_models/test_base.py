@@ -1,5 +1,9 @@
+#!/usr/bin/python3
+"""Tests the Base function."""
+
+
 import unittest
-from Base import Base
+from base import Base
 
 
 class TestBase(unittest.TestCase):
