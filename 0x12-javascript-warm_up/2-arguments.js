@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const argslenth = process.argv.length;
+const argslength = process.argv.length;
 
 if (argslength === 2) {
 	console.log("No argumen");
