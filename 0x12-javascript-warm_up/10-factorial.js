@@ -14,8 +14,8 @@ const args = process.argv.slice(2);
 const num = parseInt(args[0]);
 
 if (isNaN(num)) {
-  console.log("Please provide a valid number");
+  console.log('Please provide a valid number');
 } else {
   const result = factorial(num);
-  console.log(`The factorial of ${num} is ${result}`);
+  console.log('The factorial of ${num} is ${result}');
 }
