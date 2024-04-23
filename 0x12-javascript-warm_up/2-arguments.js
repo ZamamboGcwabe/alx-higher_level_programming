@@ -1,11 +1,11 @@
 #!/usr/bin/node
 
-const argsLength = process.argv.length;
+const args = process.argv.slice(2);
 
-if (argsLength === 2) {
-  console.log('No argument');
-} else if (argsLength === 3) {
-  console.log('Argument found');
+if (args.length === 0) {
+  console.log("undefined is undefined");
+} else if (args.length === 1) {
+  console.log(`${args[0]} is undefined`);
 } else {
-  console.log('Arguments found');
+  console.log(`${args[0]} is ${args[1]}`);
 }
