@@ -1,11 +1,11 @@
 #!/usr/bin/node
 
 class Square extends Rectangle {
-  constructor(size) {
+  constructor (size) {
     super(size, size);
   }
-  
-  charPrint(char = 'X') {
+
+  charPrint (char = 'X') {
     for (let i = 0; i < this.height; i++) {
       console.log(char.repeat(this.width));
     }
