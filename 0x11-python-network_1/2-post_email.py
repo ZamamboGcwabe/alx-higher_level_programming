@@ -10,7 +10,7 @@ import urllib.parse
 
 
 if __name__== "__main__":
-    argv =nsys.argv
+    argv = sys.argv
     url = argv[1]
     email = argv[2]
     DATA = urllib.parse.urlencode({"email": email})
