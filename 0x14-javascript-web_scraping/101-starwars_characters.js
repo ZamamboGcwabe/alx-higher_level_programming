@@ -1,42 +1,25 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 
 const request = require('request');
+const id = process.argv[2];
+const url = `https://swapi-api.alx-tools.com/api/films/${id}`;
 
-if (process.argv.length < 3) {
-    console.log("Usage: ./101-starwars_characters.js <movie_id>");
-    process.exit(1);
-}
-
-const movieId = process.argv[2];
-const url = `https://swapi.dev/api/films/${movieId}/`;
-
-request(url, (error, response, body) => {
-    if (error) {
-        console.error('Error:', error);
-        return;
+request.get(url, (error, response, body) => {
+  if (error) {
+    console.log(error);
+  } else {
+    const content = JSON.parse(body);
+    const characters = content.characters;
+    // console.log(characters);
+    for (const character of characters) {
+      request.get(character, (error, response, body) => {
+        if (error) {
+          console.log(error);
+        } else {
+          const names = JSON.parse(body);
+          console.log(names.name);
+        }
+      });
     }
-
-    if (response.statusCode !== 200) {
-        console.error(`Failed to retrieve film with ID ${movieId}`);
-        return;
-    }
-
-    const film = JSON.parse(body);
-    const characters = film.characters;
-
-    characters.forEach((characterUrl) => {
-        request(characterUrl, (charError, charResponse, charBody) => {
-            if (charError) {
-                console.error('Error:', charError);
-                return;
-            }
-
-            if (charResponse.statusCode === 200) {
-                const character = JSON.parse(charBody);
-                console.log(character.name);
-            } else {
-                console.error(`Failed to retrieve character from ${characterUrl}`);
-            }
-        });
-    });
+  }
 });
